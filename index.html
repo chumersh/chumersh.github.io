@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chumer's bio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            mono: ['Fira Code', 'monospace'],
+          },
+        },
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Tab transitions */
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transform: scale(0.96);
+      transition: all 0.4s ease;
+    }
+
+    .tab-active {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Button hover animation */
+    .tab-btn {
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.08);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-black via-zinc-900 to-zinc-800 text-gray-100 font-mono p-6 min-h-screen flex items-center justify-center">
+
+  <div class="max-w-3xl w-full bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl p-6 relative overflow-hidden">
+    <h1 class="text-4xl text-center font-bold text-indigo-400 tracking-widest mb-6 flex justify-center items-center gap-2">
+      <i data-lucide="server" class="w-6 h-6"></i> Chumer's bio
+    </h1>
+
+    <!-- Навигация -->
+    <div class="flex justify-center gap-2 mb-6 flex-wrap">
+      <button onclick="openTab('contacts')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 transition">
+        <i data-lucide="user" class="w-5 h-5"></i> <span>Соц.Сети</span>
+      </button>
+      <button onclick="openTab('projects')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 transition">
+        <i data-lucide="box" class="w-5 h-5"></i> <span>Github Проекты</span>
+      </button>
+      <button onclick="openTab('channels')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 transition">
+        <i data-lucide="send" class="w-5 h-5"></i> <span>Telegram Каналы</span>
+      </button>
+      <button onclick="openTab('about')" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 transition">
+        <i data-lucide="terminal" class="w-5 h-5"></i> <span>Обо мне</span>
+      </button>
+    </div>
+
+    <!-- Контакты -->
+    <div id="contacts" class="tab-content tab-active space-y-3 text-sm leading-relaxed">
+      <p><i data-lucide="globe" class="inline w-4 h-4 mr-1 text-indigo-400"></i> VK — <a href="https://vk.com/chumer_sh" class="text-blue-400 hover:underline">chumer_sh</a></p>
+      <p><i data-lucide="message-circle" class="inline w-4 h-4 mr-1 text-indigo-400"></i> Telegram — <a href="https://t.me/neofetch_sh" class="text-blue-400 hover:underline">@neofetch_sh</a></p>
+      <p><i data-lucide="mic-off" class="inline w-4 h-4 mr-1 text-indigo-400"></i> Discord (read-only):<br>
+        <span class="ml-4">𝓷𝓮𝓸𝓯𝓮𝓽𝓬𝓱 — <code>@chumer_sh</code> | чуʍᴇᴩ — <code>@chumer_hs</code></span>
+      </p>
+      <p><i data-lucide="github" class="inline w-4 h-4 mr-1 text-indigo-400"></i> GitHub:<br>
+        <span class="ml-4 block">OptiCraft SU — <a href="https://github.com/opticraftsu" class="text-blue-400 hover:underline">opticraftsu</a></span>
+        <span class="ml-4 block">Личное — <a href="https://github.com/thechumersh" class="text-blue-400 hover:underline">thechumersh</a></span>
+      </p>
+      <p><i data-lucide="steam" class="inline w-4 h-4 mr-1 text-indigo-400"></i> Steam — <a href="https://steamcommunity.com/id/lostinshade_" class="text-blue-400 hover:underline">lostinshade_</a></p>
+    </div>
+
+    <!-- Проекты -->
+    <div id="projects" class="tab-content space-y-3 text-sm">
+      <p><strong class="text-indigo-300">OptiCraft SU</strong> — порт Minecraft Bedrock для старых систем. Легаси не мертв, он просто перезапускается.</p>
+      <p><strong class="text-indigo-300">VBS Minecraft Launcher</strong> — минималистичный оффлайн-лаунчер, вдохновлённый старой школой. Работает там, где остальное падает.</p>
+    </div>
+
+    <!-- Каналы -->
+    <div id="channels" class="tab-content space-y-3 text-sm">
+      <p><i data-lucide="rss" class="inline w-4 h-4 mr-1 text-indigo-400"></i> <a href="https://t.me/vanillaquest" class="text-blue-400 hover:underline">VanillaQuest</a> — эксперименты с ванилью</p>
+      <p><i data-lucide="rss" class="inline w-4 h-4 mr-1 text-indigo-400"></i> <a href="https://t.me/opticraftsu" class="text-blue-400 hover:underline">OptiCraftSu</a> — новости проектов</p>
+      <p><i data-lucide="rss" class="inline w-4 h-4 mr-1 text-indigo-400"></i> <a href="https://t.me/podoshva_4ymera" class="text-blue-400 hover:underline">Подошва Чумера</a> — мысли, рофлы, личное</p>
+    </div>
+
+    <!-- Обо мне -->
+    <div id="about" class="tab-content space-y-3 text-sm">
+      <p>📍 Живу в России</p>
+      <p>🧠 Занимаюсь старым софтом, кастом-системами, ретро-проектами и интересуюсь старыми-ретро аппаратами</p>
+    </div>
+  </div>
+
+  <script>
+    // Включаем иконки
+    lucide.createIcons();
+
+    // Переключение вкладок
+    function openTab(id) {
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.remove('tab-active');
+      });
+
+      // Плавное включение
+      setTimeout(() => {
+        const target = document.getElementById(id);
+        target.classList.add('tab-active');
+      }, 50);
+    }
+  </script>
+</body>
+</html>
